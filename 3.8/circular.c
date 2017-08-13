@@ -80,12 +80,42 @@ void insertFront(struct CNode **head, int data)
     }
 }
 
+void delEnd(struct CNode **head)
+{
+    if (*head != NULL) {
+        struct CNode *cur = *head;
+        struct CNode *prev;
+        while (cur->next != *head) {
+            prev = cur;
+            cur = cur->next;
+        }
+        prev->next = *head;
+        free(cur);
+    }
+}
+
+void delFront(struct CNode **head)
+{
+    if (*head != NULL) {
+        struct CNode *cur = *head;
+        while (cur->next != *head) {
+            cur = cur->next;
+        }
+        struct CNode *temp = *head;
+        *head = (*head)->next;
+        cur->next = *head;
+        free(temp);
+    }
+}
+
 int main()
 {
     struct CNode *head = NULL;
     insertEnd(&head, 1);
     insertEnd(&head, 2);
-    insertFront(&head, 3);
+    insertEnd(&head, 3);
+
+    delFront(&head);
 
     printf("Count: %d\n", countCNode(head));
     printCNode(head);
