@@ -3,10 +3,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct CNode {
+struct CNode {
     int data;
     struct CNode *next;
-} CNode;
+};
 
 int countCNode(struct CNode *head)
 {
