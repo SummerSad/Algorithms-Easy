@@ -4,17 +4,15 @@
 #include <string.h>
 #include <time.h>
 
-int blockSize;  // max numbers of nodes in block
-
-struct ListNode {
+typedef struct Node {
     int value;
-    struct ListNode *next;
-};
+    struct Node *next;
+} Node;
 
-struct LinkedBlock {
-    struct LinkedBlock *next;
-    struct ListNode *head;
+typedef struct Block {
+    struct Block *next;
+    Node *head;
     int nodeCount;
-};
+} Block;
 
 int main() { return 0; }
