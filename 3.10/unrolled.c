@@ -15,4 +15,22 @@ typedef struct Block {
     int nodeCount;
 } Block;
 
-int main() { return 0; }
+Node *newNode(int value) {
+    Node *temp = (Node *)malloc(sizeof(Node));
+    temp->value = value;
+    temp->next = NULL;
+    return temp;
+}
+
+Block *newBlock() {
+    Block *temp = (Block *)malloc(sizeof(Block));
+    temp->next = NULL;
+    temp->head = NULL;
+    temp->nodeCount = 0;
+    return temp;
+}
+
+int main() {
+    printf("Hello World\n");
+    return 0;
+}
