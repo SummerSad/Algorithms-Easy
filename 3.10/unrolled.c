@@ -4,6 +4,8 @@
 #include <string.h>
 #include <time.h>
 
+#define sizeBlock 10
+
 typedef struct Node {
     int value;
     struct Node *next;
@@ -28,6 +30,21 @@ Block *newBlock() {
     temp->head = NULL;
     temp->nodeCount = 0;
     return temp;
+}
+
+void findEle(int k, Block *headBlock, Block **posBlock, Node **posNode) {
+    int i = k / sizeBlock;  // kth Node in ith Block
+    *posBlock = headBlock;
+    while (i > 0) {
+        *posBlock = (*posBlock)->next;
+        i--;
+    }
+    int j = k % sizeBlock;  // kth Node is jth Node in Block
+    *posNode = (*posBlock)->head;
+    while (j > 0) {
+        *posNode = (*posNode)->next;
+        j--;
+    }
 }
 
 int main() {
