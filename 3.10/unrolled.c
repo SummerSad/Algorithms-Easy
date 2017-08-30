@@ -47,6 +47,21 @@ void findEle(int k, Block *headBlock, Block **posBlock, Node **posNode) {
     }
 }
 
+void shift(Block *A) {
+    while (A->nodeCount > sizeBlock) {
+        if (A->next == NULL) {
+            A->next = newBlock();
+            B = A->next;
+            Node *temp = A->head;
+            while (temp->next != A->head) {
+                ;
+            }
+        } else {
+            Block *B = A->next;
+        }
+    }
+}
+
 int main() {
     printf("Hello World\n");
     return 0;
